@@ -1,5 +1,5 @@
 <?php
 
-    interface interectuar {
+    interface iInterectuar {
         public function reaccionar();
     }
