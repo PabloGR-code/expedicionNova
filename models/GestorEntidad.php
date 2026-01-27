@@ -29,4 +29,23 @@
             return false;
         }
 
+        public function buscar($id){
+            foreach ($_SESSION['entidad'] as $entidad){
+                if($entidad->getId()==$id){
+                    return $entidad
+                }
+            }
+            return null;
+        }
+
+        public function editar($entidad){
+            foreach ($_SESSION['entidad'] as $i => $actual){
+                if($actual->getId()==$entidad->getId()){
+                    $_SESSION['entidad'][$i]=$entidad;
+                    return true
+                }
+            }
+            return false;
+        }
+
     }
