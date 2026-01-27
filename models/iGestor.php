@@ -3,11 +3,11 @@
     interface iGestor {
         public function obtenerTodos();
 
-        public function guardar();
+        public function guardar($entidad);
 
-        public function eliminar();
+        public function eliminar($id);
 
-        public function editar();
+        public function editar($entidad);    
 
-        public function buscar();
+        public function buscar($id);
     }
