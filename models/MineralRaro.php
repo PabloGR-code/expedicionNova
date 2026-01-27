@@ -1,6 +1,6 @@
 <?php
 
-    class MineralRaro extends EntidadEstelar implements igestor{
+    class MineralRaro extends EntidadEstelar implements iGestor{
 
         private $dureza;
 

@@ -1,6 +1,6 @@
 <?php
 
-    interface igestor {
+    interface iGestor {
         public function obtenerTodos();
 
         public function guardar();
