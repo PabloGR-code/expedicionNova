@@ -42,7 +42,7 @@
             foreach ($_SESSION['entidad'] as $i => $actual){
                 if($actual->getId()==$entidad->getId()){
                     $_SESSION['entidad'][$i]=$entidad;
-                    return true
+                    return true;
                 }
             }
             return false;
