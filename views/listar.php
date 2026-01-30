@@ -16,15 +16,23 @@
             <th>Acciones</th>
         </tr>
 
-        <?php foreach ($productos as $p): ?>
+        <?php foreach ($entidades as $e): ?>
         <tr>
-            <td><?= $p->getId() ?></td>
-            <td><?= $p->getNombre() ?></td>
-            <td><?= $p->getPrecio() ?></td>
+            <td><?= $e->getId() ?></td>
+            <td><?= $e->getNombre() ?></td>
+            <td><?= $e->getPrecio() ?></td>
+            <td><?
+                if ($e instanceof FormaDeVida) {
+                    echo $e->getDieta();
+                } elseif ($e instanceof MineralRaro) {
+                    echo $e->getDureza();
+                } elseif ($e instanceof ArtefactoAntiguo) {
+                    echo $e->getAntiguedad();
+                } ?></td>
             <td>
-                <a href="index.php?accion=editar&id=<?= $p->getId() ?>">Editar</a>
+                <a href="index.php?accion=editar&id=<?= $e->getId() ?>">Editar</a>
                 |
-                <a href="index.php?accion=eliminar&id=<?= $p->getId() ?>">Eliminar</a>
+                <a href="index.php?accion=eliminar&id=<?= $e->getId() ?>">Eliminar</a>
             </td>
         </tr>
         <?php endforeach; ?>

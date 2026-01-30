@@ -8,8 +8,9 @@
         $this->gestor=$gestor;
     }
 
-    public function obtenerTodos(){
-        return $this->gestor->obtenerTodos();
+    public function index(){
+        $entidades= $this->gestor->obtenerTodos();
+        include 'views/listar.php';
     }
 
     public function guardar($entidad){

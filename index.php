@@ -23,5 +23,5 @@ switch ($accion) {
         $controller->editar($_POST);
         break;
     default:
-        $controller->obtenerTodos();
+        $controller->index();
 }
