@@ -2,25 +2,26 @@
 require_once "autoloader.php";
 session_start();
 
-$controller = new controller();
+$gestor=new GestorEntidad();
+$controller = new controller($gestor);
 
 $accion = $_GET['accion'] ?? 'index';
 
 switch ($accion) {
     case 'obtenerTodos':
-        $controller->obetenerTodos();
+        $controller->obtenerTodos();
     case 'guardar':
-        $controller->guardar();
+        $controller->guardar($_POST);
         break;
     case 'eliminar':
-        $controller->eliminar();
+        $controller->eliminar($_GET[$id]);
         break;
     case 'buscar':
-        $controller->buscar();
+        $controller->buscar($_GET[$id]);
         break;
     case 'editar':
-        $controller->editar();
+        $controller->editar($_POST);
         break;
     default:
-        $controller->index();
+        $controller->obtenerTodos();
 }

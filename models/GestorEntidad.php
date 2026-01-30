@@ -1,6 +1,4 @@
 <?php
-    
-    session_start();
 
     class GestorEntidad implements iGestor {
 
@@ -22,7 +20,7 @@
             foreach ($_SESSION['entidad'] as $i => $entidad) {
                 if($entidad->getId()== $id){
                     unset($_SESSION['entidad'][$i]);
-                    $_SESSION['entidad']=array_values($_SESSION['entidad'])
+                    $_SESSION['entidad']=array_values($_SESSION['entidad']);
                     return true;
                 }
             }
@@ -32,7 +30,7 @@
         public function buscar($id){
             foreach ($_SESSION['entidad'] as $entidad){
                 if($entidad->getId()==$id){
-                    return $entidad
+                    return $entidad;
                 }
             }
             return null;

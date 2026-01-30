@@ -8,8 +8,8 @@
         $this->gestor=$gestor;
     }
 
-    public function obetenerTodos(){
-        return $this->gestor->obetenerTodos();
+    public function obtenerTodos(){
+        return $this->gestor->obtenerTodos();
     }
 
     public function guardar($entidad){
