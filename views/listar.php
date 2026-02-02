@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Listado de Productos</title>
+    <title>Expediente Nova</title>
 </head>
 <body>
-    <h1>Productos</h1>
+    <h1>Expediente Nova</h1>
 
-    <a href="index.php?accion=crear">Agregar Producto</a>
+    <a href="index.php?accion=crear">Agregar expediente</a>
 
     <table border="1" cellpadding="10">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Precio</th>
-            <th>Acciones</th>
+            <th>Planeta</th>
+            <th>Estabilidad</th>
+            <th>Tipo</th>
+            <th>Reaccion</th>
+            <th>Accion</th>
         </tr>
 
         <?php foreach ($entidades as $e): ?>
         <tr>
             <td><?= $e->getId() ?></td>
             <td><?= $e->getNombre() ?></td>
-            <td><?= $e->getPrecio() ?></td>
+            <td><?= $e->getPlanetaOrigen() ?></td>
+            <td><?= $e->getNivelEstabilidad() ?></td>
             <td><?
                 if ($e instanceof FormaDeVida) {
                     echo $e->getDieta();
