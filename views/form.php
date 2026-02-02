@@ -21,13 +21,13 @@
         <input type="number" name="nivel de estabilidad" required><br><br>
 
         Dieta (solo si es forma de vida):<br>
-        <input type="text" name="nivel de estabilidad" required><br><br>
+        <input type="text" name="nivel de estabilidad" ><br><br>
 
         Dureza (solo si es mineral):<br>
-        <input type="number" name="nivel de estabilidad" required><br><br>
+        <input type="number" name="nivel de estabilidad" ><br><br>
 
         Antigüedad (solo si es artrfacto):<br>
-        <input type="number" name="nivel de estabilidad" required><br><br>
+        <input type="number" name="nivel de estabilidad" ><br><br>
 
         <button type="submit">Guardar</button>
     </form>

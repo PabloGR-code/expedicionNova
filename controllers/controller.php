@@ -25,12 +25,13 @@
     }
 
     public function buscar($id){
-        $this->gestor->buscar($id);
+        $entidad = $this->gestor->buscar($id);
         include 'views/editar.php';
     }
 
     public function editar($entidad){
         $this->gestor->editar($entidad);
-        include 'views/editar.php';
+        header("Location: index.php");
+        exit;
     }
     }
