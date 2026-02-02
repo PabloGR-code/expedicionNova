@@ -7,6 +7,10 @@
     <h1>Crear Expediente</h1>
 
     <form method="POST">
+
+        Tipo de entidad (forma de vida o mineral raro o artefacto):<br>
+        <input type="text" name="nombre" required><br><br>
+
         Nombre:<br>
         <input type="text" name="nombre" required><br><br>
 
