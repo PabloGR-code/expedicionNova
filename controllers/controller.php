@@ -15,17 +15,22 @@
 
     public function guardar($entidad){
         $this->gestor->guardar($entidad);
+        header("Location: index.php");
+        exit;
     }
 
     public function eliminar($id){
         $this->gestor->eliminar($id);
+        header("Location: index.php");
     }
 
     public function buscar($id){
         $this->gestor->buscar($id);
+        include 'views/editar.php';
     }
 
     public function editar($entidad){
         $this->gestor->editar($entidad);
+        include 'views/editar.php';
     }
     }
