@@ -7,6 +7,8 @@
     <h1>Expediente Nova</h1>
 
     <a href="views/form.php">Agregar expediente</a>
+    <br>
+    <br>
 
     <table border="1" cellpadding="10">
         <tr>

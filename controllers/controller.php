@@ -14,9 +14,55 @@
     }
 
     public function guardar($entidad){
-        $this->gestor->guardar($entidad);
-        header("Location: index.php");
-        exit;
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            
+            $id=uniqid();               
+            $nombre= $_POST['nombre'];
+            $planetaorigen= $_POST['planetadeorigen'];
+            $nivelestabilidad= $_POST['nivelestabilidad'];
+            $tipo=$_POST['tipo'];
+
+            $entidad=null;
+
+            if ($tipo == 'Vida'){
+                $entidad =new FormaDeVida(
+                    $id,
+                    $nombre,
+                    $planetaorigen,
+                    $nivelestabilidad,
+                    $_POST['dieta']
+                );
+            }elseif ($tipo == 'Mineral'){
+                $entidad = new MineralRaro(
+                    $id,
+                    $nombre,
+                    $planetaorigen,
+                    $nivelestabilidad,
+                    $_POST['dureza']
+                );
+            }elseif ($tipo == 'Artefacto'){
+                $entidad = new ArtefactoAntiguo(
+                    $id,
+                    $nombre,
+                    $planetaorigen,
+                    $nivelestabilidad,
+                    $_POST['antigüedad']
+                );  
+            }
+
+            if($entidad!==null){
+                $this->gestor->guardar($entidad);
+            }
+
+        
+            header("Location: index.php");
+            exit;
+
+        }
+
+        include 'views/crear.php';
+        
     }
 
     public function eliminar($id){

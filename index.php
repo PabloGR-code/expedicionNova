@@ -2,6 +2,7 @@
 require_once "autoloader.php";
 session_start();
 
+
 $gestor=new GestorEntidad();
 $controller = new controller($gestor);
 

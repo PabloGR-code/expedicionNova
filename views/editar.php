@@ -14,7 +14,7 @@
         <input type="text" name="planetadeorigen" required><br><br>
 
         Nivel de Estabilidad (0-10):<br>
-        <input type="number" name="nivel de estabilidad" required><br><br>
+        <input type="number" name="nivelestabilidad" required><br><br>
 
         <button type="submit">Actualizar</button>
     </form>

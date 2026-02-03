@@ -6,10 +6,10 @@
 <body>
     <h1>Crear Expediente</h1>
 
-    <form method="POST">
+    <form action="../index.php?accion=guardar" method="POST">
 
         Tipo de entidad (forma de vida o mineral raro o artefacto):<br>
-        <input type="text" name="nombre" required><br><br>
+        <input type="text" name="tipo" required><br><br>
 
         Nombre:<br>
         <input type="text" name="nombre" required><br><br>
@@ -18,16 +18,16 @@
         <input type="text" name="planetadeorigen" required><br><br>
 
         Nivel de Estabilidad (0-10):<br>
-        <input type="number" name="nivel de estabilidad" required><br><br>
+        <input type="number" name="nivelestabilidad" required><br><br>
 
         Dieta (solo si es forma de vida):<br>
-        <input type="text" name="nivel de estabilidad" ><br><br>
+        <input type="text" name="dieta" ><br><br>
 
         Dureza (solo si es mineral):<br>
-        <input type="number" name="nivel de estabilidad" ><br><br>
+        <input type="number" name="dureza" ><br><br>
 
         Antigüedad (solo si es artrfacto):<br>
-        <input type="number" name="nivel de estabilidad" ><br><br>
+        <input type="number" name="antigüedad" ><br><br>
 
         <button type="submit">Guardar</button>
     </form>
