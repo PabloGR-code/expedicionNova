@@ -1,6 +1,6 @@
 <?php
 
-    class FormaDeVida extends EntidadEstelar implements iInteactuable{
+    class FormaDeVida extends EntidadEstelar implements iInteractuable{
 
         private $dieta;
 

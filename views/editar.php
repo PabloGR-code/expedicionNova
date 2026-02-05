@@ -7,6 +7,8 @@
     <h1>Editar Expediente</h1>
 
     <form method="POST">
+        <input type="hidden" name="id" value="<?= $entidad->getId() ?>">
+
         Nombre:<br>
         <input type="text" name="nombre" required><br><br>
 

@@ -1,6 +1,6 @@
 <?php
 
-    abstract class EntidadEstelar{
+    abstract class EntidadEstelar {
 
         protected $id;
         protected $nombre;
@@ -27,11 +27,11 @@
         }
 
         public function getNivelEstabilidad(){
-            return $this->nivelEstabilidad
+            return $this->nivelEstabilidad;
         }
 
         public function setNivelEstabilidad(){
-            if($nivelEstabilidad=>1 && $nivelEstabilidad=<10){
+            if($nivelEstabilidad>=1 && $nivelEstabilidad<=10){
                 $this->nivelEstabilidad=$nivelEstabilidad;
             }
         }

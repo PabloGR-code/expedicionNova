@@ -8,8 +8,13 @@
 
     <form action="../index.php?accion=guardar" method="POST">
 
-        Tipo de entidad (forma de vida o mineral raro o artefacto):<br>
-        <input type="text" name="tipo" required><br><br>
+        <label>Tipo de entidad:</label>
+            <select name="tipo" required>
+                <option value="Vida">Forma de Vida</option>
+                <option value="Mineral">Mineral Raro</option>
+                <option value="Artefacto">Artefacto Antiguo</option>
+            </select>
+        <br><br>
 
         Nombre:<br>
         <input type="text" name="nombre" required><br><br>
@@ -33,6 +38,6 @@
     </form>
 
     <br>
-    <a href="index.php">Volver</a>
+    <a href="../index.php">Volver</a>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-    class MineralRaro extends EntidadEstelar implements iInteactuable{
+    class MineralRaro extends EntidadEstelar implements iInteractuable{
 
         private $dureza;
 

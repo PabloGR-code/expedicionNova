@@ -1,6 +1,6 @@
 <?php
 
-    class controller {
+    class Controller {
 
     private $gestor;
 
@@ -75,9 +75,58 @@
         include 'views/editar.php';
     }
 
-    public function editar($entidad){
-        $this->gestor->editar($entidad);
-        header("Location: index.php");
-        exit;
+    public function editar(){
+
+    
+        $id = $_GET['id'] ?? null;
+        $entidadActual = $this->gestor->buscar($id);
+
+        if (!$entidadActual) {
+            echo "Entidad no encontrada";
+            exit;
+        }
+
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $nombre = $_POST['nombre'];
+            $planeta = $_POST['planetadeorigen'];
+            $nivel = $_POST['nivelestabilidad'];
+            $tipo = $_POST['tipo'];
+
+            if ($tipo === 'Vida') {
+                $entidad = new FormaDeVida(
+                    $id,
+                    $nombre,
+                    $planeta,
+                    $nivel,
+                    $_POST['dieta']
+                );
+            } elseif ($tipo === 'Mineral') {
+                $entidad = new MineralRaro(
+                    $id,
+                    $nombre,
+                    $planeta,
+                    $nivel,
+                    $_POST['dureza']
+                );
+            } elseif ($tipo === 'Artefacto') {
+                $entidad = new ArtefactoAntiguo(
+                    $id,
+                    $nombre,
+                    $planeta,
+                    $nivel,
+                    $_POST['antigüedad']
+                );
+            }
+
+            $this->gestor->editar($entidad);
+            header("Location: index.php");
+            exit;
+        }
+
+    
+        $entidad = $entidadActual;
+        include "views/editar.php";
     }
     }

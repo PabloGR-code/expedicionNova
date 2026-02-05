@@ -1,6 +1,6 @@
 <?php
 
-    class ArtefactoAntiguo extends EntidadEstelar implements iInteactuable{
+    class ArtefactoAntiguo extends EntidadEstelar implements iInteractuable{
 
         private $antiguedad;
 

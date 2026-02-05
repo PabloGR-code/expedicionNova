@@ -17,6 +17,7 @@
             <th>Planeta</th>
             <th>Estabilidad</th>
             <th>Tipo</th>
+            <th>Detalle</th>
             <th>Reaccion</th>
             <th>Accion</th>
         </tr>
@@ -29,12 +30,23 @@
             <td><?= $e->getNivelEstabilidad() ?></td>
             <td><?
                 if ($e instanceof FormaDeVida) {
+                    echo "Formade de Vida";
+                } elseif ($e instanceof MineralRaro) {
+                    echo "Mineral Raro";
+                } elseif ($e instanceof ArtefactoAntiguo) {
+                    echo "Artefacto Antiguo";
+                } ?>
+            </td>
+            <td><?
+                if ($e instanceof FormaDeVida) {
                     echo $e->getDieta();
                 } elseif ($e instanceof MineralRaro) {
                     echo $e->getDureza();
                 } elseif ($e instanceof ArtefactoAntiguo) {
                     echo $e->getAntiguedad();
-                } ?></td>
+                } ?>
+            </td>
+            <td><?=$e->reaccionar()?></td>
             <td>
                 <a href="index.php?accion=editar&id=<?= $e->getId() ?>">Editar</a>
                 |
