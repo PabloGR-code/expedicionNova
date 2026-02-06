@@ -16,4 +16,7 @@
         public function reaccionar(){
             return "Brilla con intensidad azulada";
         }
+        public function setDureza($dureza) {
+            $this->dureza = $dureza;
+        }
     }

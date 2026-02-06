@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Editar Expediente</title>
+    <title>Editar Entidad</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1>Editar Expediente</h1>
 
-    <form method="POST">
-        <input type="hidden" name="id" value="<?= $entidad->getId() ?>">
 
-        Nombre:<br>
-        <input type="text" name="nombre" required><br><br>
+    <div class="contenedor-form">
+        <div class="panel">
+            <h1>Editar Entidad</h1>
+            <form method="POST">
+                 <input type="text" name="Id" readonly
+                        value="<?= $entidad->getId() ?>" required>
 
-        Planeta de origen:<br>
-        <input type="text" name="planetadeorigen" required><br><br>
+                <label>Nombre:</label>
+                <input type="text" name="Nombre"
+                       value="<?= $entidad->getNombre() ?>" required>
 
-        Nivel de Estabilidad (0-10):<br>
-        <input type="number" name="nivelestabilidad" required><br><br>
+                <label>Planeta de Origen:</label>
+                <input type="text" name="PlanetaOrigen"
+                       value="<?= $entidad->getPlanetaOrigen() ?>" required>
 
-        <button type="submit">Actualizar</button>
-    </form>
+                <label>Nivel de Estabilidad:</label>
+                <input type="number" name="NivelEstabilidad"
+                       min="1" max="10"
+                       value="<?= $entidad->getNivelEstabilidad() ?>" required>
 
-    <br>
-    <a href="index.php">Volver</a>
+                <label>Extra:</label>
+                <input type="text" name="Detalle"
+                       value="<?=
+                       get_class($entidad) === 'FormaDeVida' ? $entidad->getDieta() :
+                       (get_class($entidad) === 'MineralRaro' ? $entidad->getDureza() :
+                       (get_class($entidad) === 'ArtefactoAntiguo' ? $entidad->getAntiguedad() : ''))
+                       ?>">
+
+                <button type="submit">Actualizar</button>
+                <a href="index.php">Volver</a>  
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

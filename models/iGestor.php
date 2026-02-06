@@ -7,7 +7,7 @@
 
         public function eliminar($id);
 
-        public function editar($entidad);    
+        public function editar($id,$name, $planet, $level, $extra);    
 
         public function buscar($id);
     }

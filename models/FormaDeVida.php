@@ -16,4 +16,7 @@
         public function reaccionar(){
             return "Emite un pulso electromagnético";
         }
+        public function setDieta($dieta) {
+            $this->dieta = $dieta;
+        }
     }

@@ -16,4 +16,7 @@
         public function reaccionar(){
             return "Reproduce un mensaje en una lengua muerta";
         }
+        public function setAntiguedad($antiguedad) {
+            $this->antiguedad = $antiguedad;
+        }
     }

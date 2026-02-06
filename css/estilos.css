@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0b1220;
+    color:white;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#00eaff;
+}
+
+a{
+    color:#00eaff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    color:#00ffaa;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#161b22;
+    margin-top:20px;
+}
+
+th, td{
+    padding:10px;
+    border:1px solid #30363d;
+    text-align:center;
+}
+
+th{
+    background:#21262d;
+}
+
+.contenedor-form{
+    max-width:450px;
+    margin:auto;
+    text-align:center;
+}
+
+form{
+    background:#161b22;
+    padding:20px;
+    border-radius:8px;
+    margin:auto;
+}
+
+.panel{
+    background:#111827;
+    padding:30px;
+    border-radius:12px;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:5px;
+    border:none;
+}
+
+button{
+    background:#00eaff;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#00ffaa;
+}
+
+.alerta{
+    background-color:#5a1c1c;
+}
+
+.paginador{
+    margin-top:20px;
+    text-align:center;
+}
+
+.paginador a{
+    margin:0 5px;
+    padding:8px 12px;
+    background:#161b22;
+    border-radius:6px;
+    display:inline-block;
+}
+
+.paginador a.activo{
+    background:#00eaff;
+    color:black;
+}
+
+.contenedor-form{
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.panel{
+    width:100%;
+    max-width:900px;
+}
+
+.panel h1{
+    margin-bottom:35px;
+}
+
+form{
+    padding:40px;
+    border-radius:12px;
+}
+
+label{
+    display:block;
+    margin-top:20px;
+    margin-bottom:8px;
+    font-size:18px;
+}
+
+input, select{
+    padding:12px;
+    border-radius:8px;
+    background:#0b1220;
+    border:1px solid #30363d;
+    color:white;
+}
+
+input:focus{
+    outline:none;
+    border:1px solid #00eaff;
+    box-shadow:0 0 8px #00eaff;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.03);
+}
+

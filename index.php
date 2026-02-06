@@ -26,7 +26,7 @@ switch ($accion) {
         break;
 
     case 'editar':
-        $controller->editar($_POST);
+        $controller->editar();
         break;
 
     default:

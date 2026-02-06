@@ -8,10 +8,27 @@
         $this->gestor=$gestor;
     }
 
-    public function index(){
-        $entidades= $this->gestor->obtenerTodos();
+    public function index()
+    {
+        $todos = $this->gestor->obtenerTodos();
+
+        $porPagina = 5;
+        $total = count($todos);
+        $totalPaginas = ceil($total / $porPagina);
+
+        $paginaActual = $_GET['pagina'] ?? 1;
+
+        if ($paginaActual < 1) $paginaActual = 1;
+        if ($paginaActual > $totalPaginas) $paginaActual = $totalPaginas;
+
+        $inicio = ($paginaActual - 1) * $porPagina;
+        $entidades = array_slice($todos, $inicio, $porPagina);
+
         include 'views/listar.php';
     }
+
+
+    
 
     public function guardar($entidad){
 
@@ -77,56 +94,28 @@
 
     public function editar(){
 
-    
         $id = $_GET['id'] ?? null;
-        $entidadActual = $this->gestor->buscar($id);
+        $entidad = $this->gestor->buscar($id);
 
-        if (!$entidadActual) {
+        if (!$entidad) {
             echo "Entidad no encontrada";
             exit;
         }
 
-    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $nombre = $_POST['nombre'];
-            $planeta = $_POST['planetadeorigen'];
-            $nivel = $_POST['nivelestabilidad'];
-            $tipo = $_POST['tipo'];
+            $name = $_POST['Nombre'];
+            $planet = $_POST['PlanetaOrigen'];
+            $level = $_POST['NivelEstabilidad'];
+            $extra = $_POST['Detalle'];
 
-            if ($tipo === 'Vida') {
-                $entidad = new FormaDeVida(
-                    $id,
-                    $nombre,
-                    $planeta,
-                    $nivel,
-                    $_POST['dieta']
-                );
-            } elseif ($tipo === 'Mineral') {
-                $entidad = new MineralRaro(
-                    $id,
-                    $nombre,
-                    $planeta,
-                    $nivel,
-                    $_POST['dureza']
-                );
-            } elseif ($tipo === 'Artefacto') {
-                $entidad = new ArtefactoAntiguo(
-                    $id,
-                    $nombre,
-                    $planeta,
-                    $nivel,
-                    $_POST['antigüedad']
-                );
-            }
+            $this->gestor->editar($id, $name, $planet, $level, $extra);
 
-            $this->gestor->editar($entidad);
             header("Location: index.php");
             exit;
         }
 
-    
-        $entidad = $entidadActual;
-        include "views/editar.php";
+        include 'views/editar.php';
     }
+    
     }

@@ -36,14 +36,30 @@
             return null;
         }
 
-        public function editar($entidad){
+        public function editar($id, $name, $planet, $level, $extra){
             foreach ($_SESSION['entidad'] as $i => $actual){
-                if($actual->getId()==$entidad->getId()){
-                    $_SESSION['entidad'][$i]=$entidad;
-                    return true;
-                }
+            if($actual->getId() == $id){
+
+                $actual->setNombre($name);
+                $actual->setPlanetaOrigen($planet);
+                $actual->setNivelEstabilidad($level);
+
+                $tipo = get_class($actual);
+
+            if ($tipo === "FormaDeVida"){
+                $actual->setDieta($extra);
+
+            } elseif ($tipo === "MineralRaro"){
+                $actual->setDureza($extra);
+
+            } elseif ($tipo === "ArtefactoAntiguo"){
+                $actual->setAntiguedad($extra);
             }
-            return false;
+
+            return true;
+        }
+    }
+    return false;
         }
 
     }

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="css/estilos.css">
 <html>
 <head>
     <title>Expediente Nova</title>
@@ -28,23 +29,27 @@
             <td><?= $e->getNombre() ?></td>
             <td><?= $e->getPlanetaOrigen() ?></td>
             <td><?= $e->getNivelEstabilidad() ?></td>
-            <td><?
-                if ($e instanceof FormaDeVida) {
-                    echo "Formade de Vida";
-                } elseif ($e instanceof MineralRaro) {
+            <td>
+            <?php
+                if (get_class($e) === "FormaDeVida") {
+                    echo "Forma de Vida";
+                } elseif (get_class($e) === "MineralRaro") {
                     echo "Mineral Raro";
-                } elseif ($e instanceof ArtefactoAntiguo) {
+                } elseif (get_class($e) === "ArtefactoAntiguo") {
                     echo "Artefacto Antiguo";
-                } ?>
+                }
+            ?>
             </td>
-            <td><?
-                if ($e instanceof FormaDeVida) {
-                    echo $e->getDieta();
-                } elseif ($e instanceof MineralRaro) {
-                    echo $e->getDureza();
-                } elseif ($e instanceof ArtefactoAntiguo) {
-                    echo $e->getAntiguedad();
-                } ?>
+            <td>
+            <?php
+            if (get_class($e) === "FormaDeVida") {
+                echo $e->getDieta();
+            } elseif (get_class($e) === "MineralRaro") {
+                echo $e->getDureza();
+            } elseif (get_class($e) === "ArtefactoAntiguo") {
+                echo $e->getAntiguedad();
+            }
+            ?>
             </td>
             <td><?=$e->reaccionar()?></td>
             <td>
@@ -56,5 +61,23 @@
         <?php endforeach; ?>
 
     </table>
+    <div class="paginador">
+
+        <?php if ($paginaActual > 1): ?>
+            <a href="index.php?pagina=<?= $paginaActual - 1 ?>">Anterior</a>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+            <a href="index.php?pagina=<?= $i ?>"
+                class="<?= $i == $paginaActual ? 'activo' : '' ?>">
+                <?= $i ?>
+            </a>
+        <?php endfor; ?>
+
+        <?php if ($paginaActual < $totalPaginas): ?>
+            <a href="index.php?pagina=<?= $paginaActual + 1 ?>">Siguiente</a>
+        <?php endif; ?>
+
+    </div>
 </body>
 </html>

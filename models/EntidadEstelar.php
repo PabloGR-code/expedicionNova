@@ -30,11 +30,20 @@
             return $this->nivelEstabilidad;
         }
 
-        public function setNivelEstabilidad(){
+        public function setNivelEstabilidad($nivelEstabilidad){
             if($nivelEstabilidad>=1 && $nivelEstabilidad<=10){
                 $this->nivelEstabilidad=$nivelEstabilidad;
             }
         }
+
+        public function setNombre($nombre) {
+            $this->nombre = $nombre;
+        }
+
+        public function setPlanetaOrigen($planeta) {
+            $this->planetaOrigen = $planeta;
+        }
+
 
 
     }
