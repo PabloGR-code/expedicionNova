@@ -1,8 +1,3 @@
-<?php
-if ($totalPaginas <= 1) {
-    return;
-}
-?>
 
 <div class="paginador">
 
