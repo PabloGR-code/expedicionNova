@@ -18,8 +18,12 @@
 
         $paginaActual = $_GET['pagina'] ?? 1;
 
-        if ($paginaActual < 1) $paginaActual = 1;
-        if ($paginaActual > $totalPaginas) $paginaActual = $totalPaginas;
+        if ($paginaActual < 1){
+            $paginaActual = 1;
+        }
+        if ($paginaActual > $totalPaginas){
+            $paginaActual = $totalPaginas;
+        }
 
         $inicio = ($paginaActual - 1) * $porPagina;
         $entidades = array_slice($todos, $inicio, $porPagina);
